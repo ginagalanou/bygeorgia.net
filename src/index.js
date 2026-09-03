@@ -1,6 +1,4 @@
 const supportEmail = "galanouconsulting@gmail.com";
-const familyPlayIconUrl =
-  "https://raw.githubusercontent.com/ginagalanou/family-play/main/assets/images/icon.png";
 
 const css = `
 :root {
@@ -141,22 +139,21 @@ main {
 
 .brand-mark {
   align-items: center;
-  background: #ffffff;
-  border: 1px solid rgba(30, 95, 104, 0.12);
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(13, 31, 36, 0.08);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
   display: inline-flex;
   flex: 0 0 auto;
-  height: 44px;
+  height: 48px;
   justify-content: center;
   overflow: hidden;
-  width: 44px;
+  width: 48px;
 }
 
 .brand-mark img {
-  height: 38px;
+  height: 44px;
   object-fit: contain;
-  width: 38px;
+  width: 44px;
 }
 
 .nav-actions {
@@ -689,7 +686,7 @@ function renderFamilyPlayPage(origin) {
   <section class="hero" aria-labelledby="hero-title">
     <nav class="topbar" aria-label="Support navigation">
       <a class="brand" href="/family-play" aria-label="Family Play Support home">
-        <span class="brand-mark"><img src="${familyPlayIconUrl}" alt=""></span>
+        <span class="brand-mark"><img src="/family-play-logo.png" alt=""></span>
         <span>Family Play Support</span>
       </a>
       <div class="nav-actions">
@@ -712,7 +709,7 @@ function renderFamilyPlayPage(origin) {
       <div class="app-card" aria-label="Family Play app preview">
         <div class="phone-shell">
           <div class="phone-screen">
-            <img src="/family-play-intro.png" alt="Family Play intro artwork">
+            <img src="/family-game-intro.png" alt="Family Play intro artwork">
             <div class="screen-panel">
               <span>Ready when the room needs an idea</span>
               <strong>Games by age, supplies, players, and noise.</strong>
