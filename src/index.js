@@ -139,9 +139,8 @@ main {
 
 .brand-mark {
   align-items: center;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(13, 31, 36, 0.16);
   display: inline-flex;
   flex: 0 0 auto;
   height: 48px;
@@ -151,9 +150,9 @@ main {
 }
 
 .brand-mark img {
-  height: 44px;
-  object-fit: contain;
-  width: 44px;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 .nav-actions {
@@ -686,7 +685,7 @@ function renderFamilyPlayPage(origin) {
   <section class="hero" aria-labelledby="hero-title">
     <nav class="topbar" aria-label="Support navigation">
       <a class="brand" href="/family-play" aria-label="Family Play Support home">
-        <span class="brand-mark"><img src="/family-play-logo.png" alt=""></span>
+        <span class="brand-mark"><img src="/family-play-app-icon.png" alt=""></span>
         <span>Family Play Support</span>
       </a>
       <div class="nav-actions">
@@ -709,7 +708,7 @@ function renderFamilyPlayPage(origin) {
       <div class="app-card" aria-label="Family Play app preview">
         <div class="phone-shell">
           <div class="phone-screen">
-            <img src="/family-game-intro.png" alt="Family Play intro artwork">
+            <img src="/family-game-intro-current.png" alt="Family Play intro artwork">
             <div class="screen-panel">
               <span>Ready when the room needs an idea</span>
               <strong>Games by age, supplies, players, and noise.</strong>
