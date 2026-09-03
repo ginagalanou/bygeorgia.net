@@ -1,4 +1,6 @@
 const supportEmail = "galanouconsulting@gmail.com";
+const familyPlayIconUrl =
+  "https://raw.githubusercontent.com/ginagalanou/family-play/main/assets/images/icon.png";
 
 const css = `
 :root {
@@ -687,7 +689,7 @@ function renderFamilyPlayPage(origin) {
   <section class="hero" aria-labelledby="hero-title">
     <nav class="topbar" aria-label="Support navigation">
       <a class="brand" href="/family-play" aria-label="Family Play Support home">
-        <span class="brand-mark"><img src="/family-play-logo.png" alt=""></span>
+        <span class="brand-mark"><img src="${familyPlayIconUrl}" alt=""></span>
         <span>Family Play Support</span>
       </a>
       <div class="nav-actions">
