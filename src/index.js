@@ -392,6 +392,13 @@ h1 {
   margin-bottom: 26px;
 }
 
+.policy-meta {
+  color: #5d7479;
+  font-size: 0.98rem;
+  font-weight: 700;
+  margin-top: -10px;
+}
+
 .faq-list {
   display: grid;
   gap: 14px;
@@ -419,6 +426,25 @@ h1 {
   color: #334b50;
   line-height: 1.65;
   margin-bottom: 0;
+}
+
+.privacy-copy article {
+  display: grid;
+  gap: 8px;
+}
+
+.privacy-copy h3 {
+  color: var(--deep-teal);
+  font-size: 1.02rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.privacy-copy a {
+  color: var(--deep-teal);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .split-band {
@@ -624,9 +650,9 @@ function htmlResponse(body, status = 200) {
   });
 }
 
-function pageShell({ title, description, origin, path, body }) {
+function pageShell({ title, description, origin, path, body, ogImagePath = "/og.png" }) {
   const canonical = `${origin}${path}`;
-  const ogImage = `${origin}/og.png`;
+  const ogImage = `${origin}${ogImagePath}`;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -681,6 +707,7 @@ function renderFamilyPlayPage(origin) {
       "Support, common questions, and contact information for the Family Play screen-free games app.",
     origin,
     path: "/family-play",
+    ogImagePath: "/family-play-og.png",
     body: `<main>
   <section class="hero" aria-labelledby="hero-title">
     <nav class="topbar" aria-label="Support navigation">
@@ -690,7 +717,7 @@ function renderFamilyPlayPage(origin) {
       </a>
       <div class="nav-actions">
         <a href="#faq">FAQ</a>
-        <a href="#privacy">Privacy</a>
+        <a href="#privacy">Privacy Policy</a>
         <a class="small-button" href="mailto:${supportEmail}">Contact</a>
       </div>
     </nav>
@@ -735,12 +762,39 @@ function renderFamilyPlayPage(origin) {
 
   <section class="split-band" id="privacy" aria-labelledby="privacy-title">
     <div>
-      <p class="eyebrow">Privacy and Data</p>
-      <h2 id="privacy-title">Saved items stay tied to the app install</h2>
+      <p class="eyebrow">Privacy Policy</p>
+      <h2 id="privacy-title">Family Play Privacy Policy</h2>
+      <p class="policy-meta">Last updated: September 4, 2026</p>
     </div>
     <div class="privacy-copy">
-      <p>Family Play stores favorites, recently played games, and custom games locally on the device. Deleting, resetting, or moving the app to a new device may remove those saved items.</p>
-      <p>The app is designed for screen-free family play and does not require an account to browse the built-in game library.</p>
+      <article>
+        <h3>Who this policy covers</h3>
+        <p>This Privacy Policy applies to the Family Play mobile app and the Family Play support page operated by Galanou Consulting.</p>
+      </article>
+      <article>
+        <h3>Information the app stores</h3>
+        <p>Family Play does not require an account to browse the built-in game library. Favorites, recently played games, and custom games are stored locally on your device and are not sent to Galanou Consulting.</p>
+      </article>
+      <article>
+        <h3>Support requests</h3>
+        <p>If you email support, we receive your email address and any information you choose to include, such as your device type, app version, screenshots, or issue description. We use that information only to respond to and resolve your request.</p>
+      </article>
+      <article>
+        <h3>Sharing, selling, analytics, and tracking</h3>
+        <p>Family Play does not sell personal information, show advertising, use third-party advertising trackers, or share app data with third parties for marketing. The app does not use an account system, analytics service, or in-app purchases.</p>
+      </article>
+      <article>
+        <h3>Retention and deletion</h3>
+        <p>Local app data remains on your device until you delete it in the app where available, delete the app, reset the app, or erase device data. Support emails are kept only as long as needed to provide support and maintain ordinary business records. You can request deletion of support emails by contacting <a href="mailto:${supportEmail}">${supportEmail}</a>.</p>
+      </article>
+      <article>
+        <h3>Children and family use</h3>
+        <p>Family Play is intended for families to use together. The app does not knowingly collect personal information from children. If you believe a child sent personal information in a support request, contact us and we will delete it.</p>
+      </article>
+      <article>
+        <h3>Contact</h3>
+        <p>For privacy questions, support requests, or deletion requests, email <a href="mailto:${supportEmail}">${supportEmail}</a>.</p>
+      </article>
     </div>
   </section>
 
