@@ -1,3 +1,5 @@
+import { bookPath, bookDescription, bookSchema, renderBookBody } from './book.js';
+
 const supportEmail = "galanouconsulting@gmail.com";
 
 const css = `
@@ -621,6 +623,14 @@ export default {
       return htmlResponse(renderHubPage(url.origin));
     }
 
+    if (pathname === "/books") {
+      return Response.redirect(`${url.origin}${bookPath}`, 302);
+    }
+
+    if (pathname === bookPath) {
+      return htmlResponse(renderBookPage());
+    }
+
     if (pathname === "/family-play") {
       return htmlResponse(renderFamilyPlayPage(url.origin));
     }
@@ -650,7 +660,7 @@ function htmlResponse(body, status = 200) {
   });
 }
 
-function pageShell({ title, description, origin, path, body, ogImagePath = "/og.png" }) {
+function pageShell({ title, description, origin, path, body, ogImagePath = "/og.png", editorial = false, structuredData = null }) {
   const canonical = `${origin}${path}`;
   const ogImage = `${origin}${ogImagePath}`;
   return `<!doctype html>
@@ -671,32 +681,37 @@ function pageShell({ title, description, origin, path, body, ogImagePath = "/og.
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta name="twitter:image" content="${ogImage}">
-  <style>${css}</style>
+  ${editorial ? '<link rel="stylesheet" href="/editorial.css">' : `<style>${css}</style>`}
+  ${structuredData ? `<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="When I Grow Wings — a story about growing in your own time"><meta name="twitter:image:alt" content="When I Grow Wings — a story about growing in your own time"><script type="application/ld+json">${JSON.stringify(structuredData).replace(/</g, '\\u003c')}</script>` : ''}
 </head>
 <body>${body}</body>
 </html>`;
 }
 
+function renderBookPage() {
+  return pageShell({
+    title: "When I Grow Wings | Georgia G. Luchen & Vasileios G. Luchen",
+    description: bookDescription, origin: "https://bygeorgia.net", path: bookPath,
+    ogImagePath: "/when-i-grow-wings-og.png", editorial: true, structuredData: bookSchema,
+    body: renderBookBody(escapeHtml),
+  });
+}
+
 function renderHubPage(origin) {
   return pageShell({
-    title: "ByGeorgia",
-    description: "A home for apps, projects, and support from ByGeorgia.",
-    origin,
-    path: "/",
-    body: `<main class="hub-page">
-  <section class="hub-hero" aria-labelledby="hub-title">
-    <p class="eyebrow">ByGeorgia</p>
-    <h1 id="hub-title">Apps and support, all in one place.</h1>
-    <p class="lead">This domain is set up to host product pages and support resources as the ByGeorgia catalog grows.</p>
-    <a class="product-link" href="/family-play">
-      <span>
-        <strong>Family Play</strong>
-        <small>Support for the screen-free family games app</small>
-      </span>
-      <span aria-hidden="true">-&gt;</span>
-    </a>
-  </section>
-</main>`,
+    title: "ByGeorgia | Books, apps, and creative projects",
+    description: "A home for books, apps, experiments, and other projects by Georgia.",
+    origin, path: "/", editorial: true,
+    body: `<a class="skip-link" href="#main">Skip to content</a>
+<header class="editorial-nav wrap"><a class="wordmark" href="/">ByGeorgia<span class="brand-dot">.</span></a><nav aria-label="Main navigation"><a href="/books">Books</a><a href="/family-play">Family Play</a></nav></header>
+<main id="main" class="hub-main wrap">
+  <p class="kicker">ByGeorgia</p><h1>Things I’ve made,<br>built, and <em>written.</em></h1>
+  <p class="hub-lead">A home for books, apps, experiments, and other projects by Georgia.</p>
+  <div class="project-grid">
+    <a class="project-link" href="/family-play"><div class="project-art family"><img src="/family-play-app-icon.png" alt="" width="160" height="160"></div><p class="kicker">An app for families</p><h2>Family Play <span aria-hidden="true">↗</span></h2><p>A free app with simple, screen-free game ideas for families.</p></a>
+    <a class="project-link" href="/books/when-i-grow-wings"><div class="project-art"><img src="/when-i-grow-wings-cover-small.jpg" alt="" width="210" height="210"></div><p class="kicker">A children’s book</p><h2>When I Grow Wings <span aria-hidden="true">↗</span></h2><p>A children’s book about growing, changing, and finding your own time to become.</p></a>
+  </div>
+</main><footer class="editorial-footer wrap"><a class="wordmark" href="/">ByGeorgia<span class="brand-dot">.</span></a><p>Books, apps, and things made with care.</p></footer>`,
   });
 }
 
