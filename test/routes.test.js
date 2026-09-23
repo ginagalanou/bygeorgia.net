@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import worker from '../src/index.js';
-import { directBookUrl, amazonBookUrl, bookUrl } from '../src/book.js';
+import { directBookUrl, amazonBookUrl, amazonRegionalUrls, bookUrl } from '../src/book.js';
 import { createHash } from 'node:crypto';
 
 const response = (path, env = {}) => worker.fetch(new Request(`https://bygeorgia.net${path}`), env);
@@ -24,8 +24,8 @@ test('book canonical, social metadata, structured data and safe purchase links',
   assert.equal(schema.numberOfPages, 18);
   assert.equal(schema.url, bookUrl);
   assert.equal(directBookUrl, 'https://shop.ingramspark.com/b/084?params=6ENstpOCBkciZ66BVMHF4iKw8Yih3PRPxVJ1pUthQiC');
-  assert.equal(amazonBookUrl, 'https://www.amazon.com/s?k=9798348317522');
-  for (const url of [directBookUrl, amazonBookUrl]) assert.equal(html.split(`href="${url}" target="_blank" rel="noopener noreferrer"`).length - 1, 2);
+  assert.equal(amazonBookUrl, 'https://www.amazon.com/When-Grow-Wings-Georgia-Luchen/dp/B0DTTH1P5M');
+  for (const url of [directBookUrl, amazonBookUrl, ...amazonRegionalUrls.map(({url}) => url)]) assert.equal(html.split(`href="${url}" target="_blank" rel="noopener noreferrer"`).length - 1, 2);
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
 });
 test('static assets are delegated to the existing assets binding', async () => {

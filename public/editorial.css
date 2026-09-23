@@ -711,3 +711,22 @@ dd {
   }
 }
 
+
+/* Regional stores stay secondary to the two main purchase choices. */
+.regional-purchases {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: .75rem;
+}
+.regional-purchases a {
+  display: inline-block;
+  padding-block: 8px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.regional-purchases span[aria-hidden] {
+  margin-inline: 10px;
+}
+.closing .regional-purchases {
+  color: #d8ced6;
+}

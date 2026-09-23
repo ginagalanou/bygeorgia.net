@@ -29,8 +29,8 @@ npm run dev
 
 The Worker still renders HTML without client-side JavaScript or a framework. Book
 content, structured data, and the `directBookUrl` / `amazonBookUrl` constants live in
-`src/book.js`. Amazon currently uses the ISBN search fallback; replace
-`amazonBookUrl` with a verified product URL if desired. Family Play's rendering
+`src/book.js`. Amazon uses the supplied US hardcover listing. `amazonRegionalUrls` contains
+the supplied UK and Germany hardcover listings, with tracking parameters removed. Family Play's rendering
 and styles remain unchanged. The new hub and book share `public/editorial.css`.
 
 The supplied square artwork is preserved without cropping. Local JPEGs at 1280px
