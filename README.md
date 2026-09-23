@@ -33,10 +33,10 @@ content, structured data, and the `directBookUrl` / `amazonBookUrl` constants li
 the supplied UK and Germany hardcover listings, with tracking parameters removed. Family Play's rendering
 and styles remain unchanged. The new hub and book share `public/editorial.css`.
 
-The supplied square artwork is preserved without cropping. Local JPEGs at 1280px
+The supplied main illustration is presented as story artwork, not as a cover, and is preserved without cropping. The early interior PDF informed the sky-blue, leaf-green and sunshine palette but is not published. Local JPEGs at 1280px
 and 640px support responsive delivery. The 1200 × 630 social image uses the same
 artwork. `scripts/prepare-book-images.py` regenerates these assets with Pillow
-(development only), using Georgia/Arial fonts from macOS. Generated images are
+(development only), using system fonts from macOS. Generated images are
 committed; deployment needs neither Python nor font files.
 
 ## Validation

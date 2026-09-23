@@ -29,7 +29,7 @@ test('book canonical, social metadata, structured data and safe purchase links',
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
 });
 test('static assets are delegated to the existing assets binding', async () => {
-  for (const path of ['/editorial.css', '/when-i-grow-wings-cover.jpg', '/when-i-grow-wings-cover-small.jpg', '/when-i-grow-wings-og.png']) {
+  for (const path of ['/editorial.css', '/when-i-grow-wings-artwork.jpg', '/when-i-grow-wings-artwork-small.jpg', '/when-i-grow-wings-og.png']) {
     const result = await response(path, { ASSETS: { fetch: request => new Response(new URL(request.url).pathname) } });
     assert.equal(await result.text(), path);
   }

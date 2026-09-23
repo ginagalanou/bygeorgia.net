@@ -4,23 +4,25 @@ import sys
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 out = Path(__file__).resolve().parents[1] / 'public'
-cover = ImageOps.exif_transpose(Image.open(sys.argv[1])).convert('RGB')
-for size, filename in [(1280, 'when-i-grow-wings-cover.jpg'), (640, 'when-i-grow-wings-cover-small.jpg')]:
-    image = cover.copy()
+artwork = ImageOps.exif_transpose(Image.open(sys.argv[1])).convert('RGB')
+for size, filename in [(1280, 'when-i-grow-wings-artwork.jpg'), (640, 'when-i-grow-wings-artwork-small.jpg')]:
+    image = artwork.copy()
     image.thumbnail((size, size), Image.Resampling.LANCZOS)
     image.save(out / filename, quality=90, optimize=True, progressive=True)
-canvas = Image.new('RGB', (1200, 630), '#fbf8f1')
+canvas = Image.new('RGB', (1200, 630), '#e2f4fa')
 draw = ImageDraw.Draw(canvas)
 font_dir = Path('/System/Library/Fonts/Supplemental')
 def font(name, size):
     return ImageFont.truetype(str(font_dir / name), size)
-draw.text((65, 48), 'ByGeorgia.', font=font('Georgia.ttf', 28), fill='#322a39')
-draw.text((65, 146), 'A CHILDREN’S BOOK BY A MOTHER AND SON', font=font('Arial.ttf', 15), fill='#89692c')
-draw.text((60, 190), 'When I', font=font('Georgia.ttf', 72), fill='#322a39')
-draw.text((60, 268), 'Grow Wings', font=font('Georgia Italic.ttf', 72), fill='#765a73')
-draw.text((65, 385), 'A story about growing\nin your own time.', font=font('Georgia.ttf', 27), fill='#322a39', spacing=10)
-draw.text((65, 520), 'Georgia G. Luchen & Vasileios G. Luchen', font=font('Arial.ttf', 18), fill='#655f65')
-art = cover.copy()
+draw.ellipse((520, -120, 1250, 720), fill='#ffdb60')
+draw.text((60, 38), 'ByGeorgia.', font=font('Georgia.ttf', 28), fill='#203f37')
+draw.text((60, 125), '#ByGeorgia   /   A story to grow with', font=font('Arial Bold.ttf', 19), fill='#a83364')
+draw.text((55, 185), 'When I', font=font('Trebuchet MS Bold.ttf', 76), fill='#203f37')
+draw.text((55, 268), 'Grow Wings', font=font('Trebuchet MS Bold.ttf', 76), fill='#a83364')
+draw.text((60, 390), 'A story about growing\nin your own time.', font=font('Trebuchet MS Bold.ttf', 30), fill='#203f37', spacing=7)
+draw.text((60, 532), 'Georgia G. Luchen & Vasileios G. Luchen', font=font('Arial.ttf', 18), fill='#496159')
+art = artwork.copy()
 art.thumbnail((500, 500), Image.Resampling.LANCZOS)
+draw.rounded_rectangle((642, 57, 1158, 573), radius=16, fill='#fff9e9')
 canvas.paste(art, (650, 65))
 canvas.save(out / 'when-i-grow-wings-og.png', optimize=True)

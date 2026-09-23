@@ -705,11 +705,11 @@ function renderHubPage(origin) {
     body: `<a class="skip-link" href="#main">Skip to content</a>
 <header class="editorial-nav wrap"><a class="wordmark" href="/">ByGeorgia<span class="brand-dot">.</span></a><nav aria-label="Main navigation"><a href="/books">Books</a><a href="/family-play">Family Play</a></nav></header>
 <main id="main" class="hub-main wrap">
-  <p class="kicker">ByGeorgia</p><h1>Things I’ve made,<br>built, and <em>written.</em></h1>
+  <p class="kicker">#ByGeorgia</p><h1>Things I’ve made,<br>built, and <em>written.</em></h1>
   <p class="hub-lead">A home for books, apps, experiments, and other projects by Georgia.</p>
   <div class="project-grid">
     <a class="project-link" href="/family-play"><div class="project-art family"><img src="/family-play-app-icon.png" alt="" width="160" height="160"></div><p class="kicker">An app for families</p><h2>Family Play <span aria-hidden="true">↗</span></h2><p>A free app with simple, screen-free game ideas for families.</p></a>
-    <a class="project-link" href="/books/when-i-grow-wings"><div class="project-art"><img src="/when-i-grow-wings-cover-small.jpg" alt="" width="210" height="210"></div><p class="kicker">A children’s book</p><h2>When I Grow Wings <span aria-hidden="true">↗</span></h2><p>A children’s book about growing, changing, and finding your own time to become.</p></a>
+    <a class="project-link" href="/books/when-i-grow-wings"><div class="project-art"><img src="/when-i-grow-wings-artwork-small.jpg" alt="" width="210" height="210"></div><p class="kicker">A children’s book</p><h2>When I Grow Wings <span aria-hidden="true">↗</span></h2><p>A children’s book about growing, changing, and finding your own time to become.</p></a>
   </div>
 </main><footer class="editorial-footer wrap"><a class="wordmark" href="/">ByGeorgia<span class="brand-dot">.</span></a><p>Books, apps, and things made with care.</p></footer>`,
   });
