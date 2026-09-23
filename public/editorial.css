@@ -1,6 +1,6 @@
 /* ByGeorgia: a bright, creative home. Family Play keeps its own existing styles. */
 :root {
-  --paper: #e2f4fa;
+  --paper: #f7fcfc;
   --ink: #203f37;
   --muted: #496159;
   --blue: #dff3fa;
@@ -31,7 +31,7 @@ cite { font-style: italic; }
 .editorial-nav nav a { padding-block: 8px; }
 .movement { color: var(--accent); }
 .book-page { background: var(--paper); }
-.book-hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding-block: 66px 92px; }
+.book-hero { display: grid; grid-template-columns: .95fr 1.1fr; align-items: center; gap: 52px; padding-block: 55px 85px; }
 .book-intro h1 { font-size: clamp(58px,6.6vw,91px); line-height: 1.01; letter-spacing: -.065em; }
 .book-intro h1 em { display: inline-block; position: relative; color: inherit; }
 .book-intro h1 em::after { content: ''; display: block; height: 8px; background: var(--sun); border-radius: 70%; transform: rotate(-4deg); margin-top: 5px; }
@@ -48,12 +48,8 @@ cite { font-style: italic; }
 .regional-purchases { margin-top: 9px; color: var(--muted); font-size: .75rem; }
 .regional-purchases a { display: inline-block; padding-block: 8px; text-decoration: underline; text-underline-offset: 4px; }
 .regional-purchases span[aria-hidden] { margin-inline: 10px; }
-.artwork-presentation { position: relative; isolation: isolate; padding-top: 20px; }
-.artwork-presentation img { width: 100%; border: 7px solid #fff; border-radius: 22px; box-shadow: 0 20px 45px -22px #284d4480; transform: rotate(2deg); }
-.artwork-halo { position: absolute; inset: -18px 10px 35px; z-index: -1; background: #ffe08a; border-radius: 48% 52% 36% 64% / 40% 35% 65% 60%; transform: rotate(-7deg); }
-.artwork-presentation figcaption { margin-top: 29px; text-align: center; font-size: .85rem; font-weight: 650; color: var(--muted); }
-.story-section { display: grid; grid-template-columns: 1fr 2fr; gap: 65px; padding-block: 68px 95px; }
-.story-section .kicker::before { content: ''; display: block; width: 55px; height: 55px; background: var(--sun); border-radius: 50%; margin-bottom: 24px; }
+.story-section { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; padding-block: 70px; }
+.story-copy .kicker::before { content: ''; display: block; width: 55px; height: 55px; background: var(--sun); border-radius: 50%; margin-bottom: 24px; }
 .story-section h2 { margin-bottom: 28px; }
 .story-section p:not(.kicker) { max-width: 650px; color: var(--muted); }
 .together-section { background: var(--green); border-radius: 70px 70px 0 0; padding-block: 78px; }
@@ -131,12 +127,9 @@ dd { margin: 0; }
   .hero-heading { order: 1; }
   .hero-description { order: 3; }
   .hero-description .positioning { margin-top: 0; }
-  .artwork-presentation { order: 2; }
+  .cover-scene { order: 2; }
   .purchase-links>div { min-width: 140px; }
   .purchase { padding: 12px 14px; font-size: .8rem; }
-  .artwork-presentation { width: min(100% - 16px,500px); margin: auto; padding-top: 10px; }
-  .artwork-halo { inset: 6px 4px 40px; }
-  .artwork-presentation figcaption { font-size: .77rem; }
   .story-section,.details-section { grid-template-columns: 1fr; gap: 12px; padding-block: 45px 55px; }
   .story-section .kicker::before { width: 30px; height: 30px; margin-bottom: 16px; }
   .story-section h2 { font-size: 36px; }
@@ -169,4 +162,64 @@ dd { margin: 0; }
 @media(prefers-reduced-motion:reduce) {
   html { scroll-behavior: auto; }
   *,*::before,*::after { transition: none!important; animation: none!important; }
+}
+
+/* Published cover and original scenes, composed without redrawing the characters. */
+.cover-scene { position: relative; isolation: isolate; padding: 35px 48px 62px 15px; margin: 0; }
+.scene-sky { position: absolute; inset: 0 35px 35px 0; background: #e1f2f4; border-radius: 48% 52% 33% 67% / 37% 56% 44% 63%; z-index: -2; transform: rotate(-9deg); }
+.flight-path { clip-path: inset(0 0 70px 0); position: absolute; inset: -20px -8px 0; width: 100%; height: 100%; z-index: -1; }
+.book-object { position: relative; transform: perspective(1200px) rotateY(-9deg) rotateZ(3deg); margin-right: 12px; border-radius: 3px 12px 12px 3px; box-shadow: -7px 6px 0 #496a61, 0 25px 30px -12px #203f374a; }
+.book-object::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg,#122b3b45,transparent 2%,#ffffff30 3%,transparent 6%); border-radius: inherit; }
+.book-object img { width: 100%; height: auto; border-radius: inherit; }
+.cover-scene figcaption { position: relative; margin: 28px 0 0 30px; text-align: center; font: 500 19px/1.35 'Bradley Hand','Comic Sans MS',cursive; transform: rotate(-4deg); }
+.cover-scene figcaption br { display: none; }
+.cover-scene figcaption span { display: block; color: #956800; font-size: 33px; line-height: 1.2; margin-top: 8px; }
+.leaf-spray { position: absolute; right: 0; bottom: 32px; width: 66px; height: 170px; border-left: 3px solid #729451; transform: rotate(25deg); z-index: -1; }
+.leaf-spray i { position: absolute; width: 52px; height: 29px; background: linear-gradient(135deg,#c4d891,#709b55); border-radius: 100% 0 100% 0; left: 0; top: 10px; }
+.leaf-spray i:nth-child(2) { left: -48px; top: 45px; transform: rotate(80deg); }
+.leaf-spray i:nth-child(3) { top: 80px; }
+.leaf-spray i:nth-child(4) { left: -45px; top: 120px; transform: rotate(80deg); }
+.story-band { position: relative; background: #e2f4fa; }
+.story-band::before,.story-band::after { content: ''; position: absolute; left: 0; right: 0; height: 48px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1440V18C1010 90 680 86 390 42C220 16 110 12 0 50Z' fill='%23f7fcfc'/%3E%3C/svg%3E") center/100% 100% no-repeat; pointer-events: none; }
+.story-band::before { top: -1px; }
+.story-band::after { bottom: -1px; transform: rotate(180deg); }
+.story-copy { padding-block: 28px; }
+.story-copy h2 { font-size: clamp(32px,3.4vw,45px); }
+.story-copy .kicker::before { width: 36px; height: 36px; margin-bottom: 14px; }
+.story-illustration { margin: 0 -15px 0 0; }
+.story-illustration img { width: 100%; border-radius: 46% 46% 10% 10% / 24% 24% 10% 10%; }
+.inside-section { display: grid; grid-template-columns: 1.2fr 1fr; gap: 75px; align-items: center; padding-block: 85px 95px; }
+.inside-art { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: start; }
+.inside-art figure { background: white; padding: 8px 8px 16px; box-shadow: 0 15px 25px -15px #203f3750; transform: rotate(-6deg); }
+.inside-art figure+figure { margin-top: 50px; transform: rotate(5deg); }
+.inside-art img { width: 100%; height: auto; }
+.inside-art figcaption { font-size: .73rem; text-align: center; padding-top: 12px; font-weight: 650; line-height: 1.4; }
+.inside-copy h2 { font-size: clamp(32px,3.3vw,43px); margin-bottom: 22px; }
+.inside-copy>p:not(.kicker) { color: var(--muted); font-size: 1.05rem; }
+.story-notes { padding: 0; margin: 25px 0 0; list-style: none; }
+.story-notes li { display: flex; gap: 17px; align-items: center; margin-top: 15px; }
+.story-notes span { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; background: #ffdb60; font-size: 26px; }
+.story-notes li:nth-child(2) span { background: #dbeaaf; }
+.story-notes li:nth-child(3) span { background: #bce2e5; }
+@media(min-width:1400px) {
+  .cover-scene { padding-right: 65px; }
+}
+@media(max-width:1000px) {
+  .cover-scene { padding: 25px 25px 42px 5px; }
+  .cover-scene figcaption { font-size: 17px; margin-left: 0; }
+  .inside-section { gap: 35px; }
+}
+@media(max-width:760px) {
+  .cover-scene { width: min(100% - 26px,470px); margin-inline: auto; padding: 15px 24px 20px 8px; }
+  .cover-scene figcaption { margin-top: 24px; font-size: 17px; }
+  .leaf-spray { bottom: 105px; transform: rotate(15deg) scale(.8); transform-origin: bottom; }
+  .scene-sky { inset: -5px 10px 25px 0; }
+  .story-section { grid-template-columns: 1fr; gap: 0; padding-block: 55px 45px; }
+  .story-copy { padding-block: 15px; }
+  .story-copy h2 { font-size: 34px; }
+  .story-illustration { max-width: 470px; margin: 12px auto 0; }
+  .inside-section { grid-template-columns: 1fr; gap: 45px; padding-block: 58px; }
+  .inside-art { width: calc(100% - 20px); margin: auto; }
+  .inside-art figure+figure { margin-top: 30px; }
+  .inside-art figcaption { font-size: .68rem; }
 }

@@ -22,6 +22,7 @@ test('book canonical, social metadata, structured data and safe purchase links',
   assert.equal(schema.isbn, '9798348317522');
   assert.equal(schema.author.length, 2);
   assert.equal(schema.numberOfPages, 18);
+  assert.equal(schema.image, 'https://bygeorgia.net/when-i-grow-wings-cover.jpg');
   assert.equal(schema.url, bookUrl);
   assert.equal(directBookUrl, 'https://shop.ingramspark.com/b/084?params=6ENstpOCBkciZ66BVMHF4iKw8Yih3PRPxVJ1pUthQiC');
   assert.equal(amazonBookUrl, 'https://www.amazon.com/When-Grow-Wings-Georgia-Luchen/dp/B0DTTH1P5M');
@@ -29,7 +30,7 @@ test('book canonical, social metadata, structured data and safe purchase links',
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
 });
 test('static assets are delegated to the existing assets binding', async () => {
-  for (const path of ['/editorial.css', '/when-i-grow-wings-artwork.jpg', '/when-i-grow-wings-artwork-small.jpg', '/when-i-grow-wings-og.png']) {
+  for (const path of ['/editorial.css', '/when-i-grow-wings-artwork.jpg', '/when-i-grow-wings-artwork-small.jpg', '/when-i-grow-wings-og.png', '/when-i-grow-wings-cover.jpg', '/when-i-grow-wings-cover-small.jpg', '/wings-encouragement.jpg', '/wings-friend-small.jpg', '/wings-growing-small.jpg']) {
     const result = await response(path, { ASSETS: { fetch: request => new Response(new URL(request.url).pathname) } });
     assert.equal(await result.text(), path);
   }

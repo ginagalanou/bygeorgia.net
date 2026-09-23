@@ -33,11 +33,19 @@ content, structured data, and the `directBookUrl` / `amazonBookUrl` constants li
 the supplied UK and Germany hardcover listings, with tracking parameters removed. Family Play's rendering
 and styles remain unchanged. The new hub and book share `public/editorial.css`.
 
-The supplied main illustration is presented as story artwork, not as a cover, and is preserved without cropping. The early interior PDF informed the sky-blue, leaf-green and sunshine palette but is not published. Local JPEGs at 1280px
-and 640px support responsive delivery. The 1200 × 630 social image uses the same
-artwork. `scripts/prepare-book-images.py` regenerates these assets with Pillow
-(development only), using system fonts from macOS. Generated images are
-committed; deployment needs neither Python nor font files.
+The hero and Book metadata use the actual published cover from the supplied
+IngramSpark image listing, fetched at 1140 × 1200 and stored locally. The cover's
+artwork, title, proportions and author lettering are preserved. A subtle CSS spine
+and shadow provide the book presentation without creating a new cover.
+
+Original supplied illustrations appear in the story and inside-art sections. CSS
+shapes the story scene's background corners; no characters are redrawn or generated.
+The private draft PDF is not published, and no invented interior spread is shown.
+`scripts/prepare-story-assets.py` optimizes the original JPEGs and downloaded cover
+using Pillow (development only). Pass the original images directory and cover file.
+Run it before `scripts/prepare-book-images.py`, which creates the main artwork sizes
+and the 1200 × 630 social image using the published cover. Images are committed;
+deployment needs neither Python nor system fonts.
 
 ## Validation
 
