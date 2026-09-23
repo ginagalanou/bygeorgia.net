@@ -114,6 +114,7 @@ dd { margin: 0; }
   .wrap { width: calc(100% - 64px); }
   .book-hero { gap: 35px; }
   .purchase-links>div { min-width: 150px; }
+  .purchase { font-size: .8rem; padding-inline: 12px; }
   .story-section,.details-section { gap: 35px; }
   .together-grid { gap: 45px; }
   .editorial-footer { flex-wrap: wrap; }
