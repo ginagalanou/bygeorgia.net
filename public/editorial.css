@@ -1,12 +1,12 @@
 /* ByGeorgia: a bright, creative home. Family Play keeps its own existing styles. */
 :root {
-  --paper: #fff9e9;
+  --paper: #e2f4fa;
   --ink: #203f37;
   --muted: #496159;
   --blue: #dff3fa;
   --green: #dbeaaf;
   --sun: #ffd44d;
-  --pink: #ac3966;
+  --accent: #246c8a;
   --line: #ccd7bb;
   --heading: 'Avenir Next', 'Trebuchet MS', ui-rounded, system-ui, sans-serif;
 }
@@ -14,26 +14,26 @@
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.75 'Avenir Next', system-ui, sans-serif; }
 a { color: inherit; text-decoration: none; }
-a:focus-visible { outline: 3px solid #ac3966; outline-offset: 5px; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
 img { display: block; max-width: 100%; height: auto; }
 p,h1,h2,h3,figure { margin: 0; }
 p+p { margin-top: 20px; }
 h1,h2,h3 { font-family: var(--heading); font-weight: 800; line-height: 1.1; letter-spacing: -.045em; }
 h2 { font-size: clamp(34px,4vw,52px); }
-em { font-style: normal; color: var(--pink); }
+em { font-style: normal; color: inherit; }
 cite { font-style: italic; }
 .wrap { width: min(1180px,calc(100% - 96px)); margin-inline: auto; }
 .kicker { font-size: .76rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 22px; }
 .editorial-nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 24px; }
 .wordmark { font-family: Georgia,serif; font-size: 29px; font-weight: 400; letter-spacing: -1px; }
-.brand-dot { color: #ad3f29; }
+.brand-dot { color: var(--accent); }
 .editorial-nav nav { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; font-size: .8rem; font-weight: 650; }
 .editorial-nav nav a { padding-block: 8px; }
-.movement { color: var(--pink); }
-.book-page { background: linear-gradient(180deg,#e2f4fa 0,#f2f9e8 660px,var(--paper) 1000px); }
+.movement { color: var(--accent); }
+.book-page { background: var(--paper); }
 .book-hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding-block: 66px 92px; }
 .book-intro h1 { font-size: clamp(58px,6.6vw,91px); line-height: 1.01; letter-spacing: -.065em; }
-.book-intro h1 em { display: inline-block; position: relative; color: #a83364; }
+.book-intro h1 em { display: inline-block; position: relative; color: inherit; }
 .book-intro h1 em::after { content: ''; display: block; height: 8px; background: var(--sun); border-radius: 70%; transform: rotate(-4deg); margin-top: 5px; }
 .byline { font-size: .87rem; font-weight: 650; margin-top: 25px; }
 .positioning { font: 750 26px/1.35 var(--heading); margin-top: 27px; letter-spacing: -.02em; }
@@ -49,7 +49,7 @@ cite { font-style: italic; }
 .regional-purchases a { display: inline-block; padding-block: 8px; text-decoration: underline; text-underline-offset: 4px; }
 .regional-purchases span[aria-hidden] { margin-inline: 10px; }
 .artwork-presentation { position: relative; isolation: isolate; padding-top: 20px; }
-.artwork-presentation img { width: 100%; border: 7px solid #fffaf0; border-radius: 22px; box-shadow: 0 20px 45px -22px #284d4480; transform: rotate(2deg); }
+.artwork-presentation img { width: 100%; border: 7px solid #fff; border-radius: 22px; box-shadow: 0 20px 45px -22px #284d4480; transform: rotate(2deg); }
 .artwork-halo { position: absolute; inset: -18px 10px 35px; z-index: -1; background: #ffe08a; border-radius: 48% 52% 36% 64% / 40% 35% 65% 60%; transform: rotate(-7deg); }
 .artwork-presentation figcaption { margin-top: 29px; text-align: center; font-size: .85rem; font-weight: 650; color: var(--muted); }
 .story-section { display: grid; grid-template-columns: 1fr 2fr; gap: 65px; padding-block: 68px 95px; }
@@ -59,7 +59,7 @@ cite { font-style: italic; }
 .together-section { background: var(--green); border-radius: 70px 70px 0 0; padding-block: 78px; }
 .together-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
 .together-grid h2 { font-size: clamp(42px,5vw,64px); }
-.together-grid h2 em { color: #395e27; }
+.together-grid h2 em { color: inherit; }
 .together-copy { max-width: 550px; }
 .together-copy>p { font-size: 1.06rem; }
 .together-copy .dedication { font: 650 23px/1.55 var(--heading); margin-top: 30px; padding-top: 27px; border-top: 1px solid #9dae79; }
@@ -86,7 +86,7 @@ dd { margin: 0; }
 .authors-grid p { color: var(--muted); font-size: .96rem; }
 .closing { background: #ffdb60; text-align: center; padding-block: 78px 85px; border-radius: 50% 50% 0 0 / 35px 35px 0 0; }
 .closing h2 { font-size: clamp(40px,5vw,66px); }
-.closing em { color: #8e335c; }
+.closing em { color: inherit; }
 .closing>div>p:not(.kicker) { max-width: 500px; margin: 24px auto 0; }
 .closing .purchase-links { justify-content: center; }
 .editorial-footer { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-block: 30px; font-size: .77rem; }
@@ -96,7 +96,7 @@ dd { margin: 0; }
 .skip-link:focus { top: 12px; }
 /* The hub has the same creative voice, with room for more projects. */
 .hub-main { padding-block: 65px 90px; }
-.hub-main>.kicker { color: var(--pink); text-transform: none; letter-spacing: 0; font-size: 1rem; }
+.hub-main>.kicker { color: var(--accent); text-transform: none; letter-spacing: 0; font-size: 1rem; }
 .hub-main h1 { font-size: clamp(44px,6vw,76px); max-width: 900px; }
 .hub-main h1 em { background: linear-gradient(transparent 78%,#ffd44d 78%); }
 .hub-lead { color: var(--muted); margin-top: 25px; font-size: 1.08rem; }
