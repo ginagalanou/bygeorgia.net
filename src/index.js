@@ -660,7 +660,7 @@ function htmlResponse(body, status = 200) {
   });
 }
 
-function pageShell({ title, description, origin, path, body, ogImagePath = "/og.png", editorial = false, structuredData = null }) {
+function pageShell({ title, description, origin, path, body, ogImagePath = "/og.png", editorial = false, structuredData = null, faviconPath = "/favicon.png" }) {
   const canonical = `${origin}${path}`;
   const ogImage = `${origin}${ogImagePath}`;
   return `<!doctype html>
@@ -671,7 +671,7 @@ function pageShell({ title, description, origin, path, body, ogImagePath = "/og.
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
   <link rel="canonical" href="${canonical}">
-  <link rel="icon" href="/favicon.png">
+  <link rel="icon" href="${escapeHtml(faviconPath)}">
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:type" content="website">
@@ -693,6 +693,7 @@ function renderBookPage() {
     title: "When I Grow Wings | Georgia G. Luchen & Vasileios G. Luchen",
     description: bookDescription, origin: "https://bygeorgia.net", path: bookPath,
     ogImagePath: "/when-i-grow-wings-og.png", editorial: true, structuredData: bookSchema,
+    faviconPath: "/when-i-grow-wings-favicon.svg",
     body: renderBookBody(escapeHtml),
   });
 }
