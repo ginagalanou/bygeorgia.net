@@ -35,10 +35,10 @@ test('static assets are delegated to the existing assets binding', async () => {
     assert.equal(await result.text(), path);
   }
 });
-test('Family Play HTML remains identical to the pre-book implementation', async () => {
-  // Whitespace-normalized baseline from commit 5c1264c; independent of local git history.
+test('Family Play HTML matches the approved support page with download CTA', async () => {
+  // Whitespace-normalized approved baseline, independent of local git history.
   const html = await (await response('/family-play')).text();
-  assert.equal(createHash('sha256').update(html.replace(/\s+/g, ' ')).digest('hex'), '1276c492288615463dbf0dc2304694041d7d93f6f5dfd6d6d2e825c584f8c180');
+  assert.equal(createHash('sha256').update(html.replace(/\s+/g, ' ')).digest('hex'), '978f882391f1601096425b2fe9d3ab867341c8d46425750a746c3325bd8c621e');
 });
 
 test('the book has its own favicon without changing the hub or Family Play', async () => {
@@ -48,4 +48,12 @@ test('the book has its own favicon without changing the hub or Family Play', asy
     const html = await (await response(path)).text();
     assert.ok(html.includes('<link rel="icon" href="/favicon.png">'));
   }
+});
+
+test('Family Play offers the verified App Store download as its primary action', async () => {
+  const html = await (await response('/family-play')).text();
+  const appStoreUrl = 'https://apps.apple.com/us/app/family-play-screen-free-games/id6804775809';
+  assert.ok(html.includes(`href="${appStoreUrl}" target="_blank" rel="noopener noreferrer"`));
+  assert.ok(html.includes('Download on the App Store'));
+  assert.ok(html.includes(`href="mailto:galanouconsulting@gmail.com">Email Support</a>`));
 });
