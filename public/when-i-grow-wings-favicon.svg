@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>When I Grow Wings butterfly</title>
+  <rect width="64" height="64" rx="15" fill="#fff2b9"/>
+  <g stroke="#283044" stroke-width="2.5" stroke-linejoin="round">
+    <path d="M30 32C24 17 10 7 6 13C2 20 9 38 27 41Z" fill="#f9bd36"/>
+    <path d="M34 32C40 17 54 7 58 13C62 20 55 38 37 41Z" fill="#f9bd36"/>
+    <path d="M28 36C11 29 6 41 12 50C18 58 28 49 31 41Z" fill="#42b9d1"/>
+    <path d="M36 36C53 29 58 41 52 50C46 58 36 49 33 41Z" fill="#42b9d1"/>
+  </g>
+  <path d="M9 15C17 19 24 25 28 34C18 30 12 23 9 15M55 15C47 19 40 25 36 34C46 30 52 23 55 15" fill="#f27036"/>
+  <path d="M14 42C18 38 23 39 27 40C21 49 17 49 14 42M50 42C46 38 41 39 37 40C43 49 47 49 50 42" fill="#9751a4"/>
+  <path d="M30 27L26 19M34 27L38 19" stroke="#283044" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="28" y="26" width="8" height="23" rx="4" fill="#8cbf45" stroke="#283044" stroke-width="2.5"/>
+</svg>

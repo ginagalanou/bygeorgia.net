@@ -40,3 +40,12 @@ test('Family Play HTML remains identical to the pre-book implementation', async 
   const html = await (await response('/family-play')).text();
   assert.equal(createHash('sha256').update(html.replace(/\s+/g, ' ')).digest('hex'), '1276c492288615463dbf0dc2304694041d7d93f6f5dfd6d6d2e825c584f8c180');
 });
+
+test('the book has its own favicon without changing the hub or Family Play', async () => {
+  const book = await (await response('/books/when-i-grow-wings')).text();
+  assert.ok(book.includes('<link rel="icon" href="/when-i-grow-wings-favicon.svg">'));
+  for (const path of ['/', '/family-play']) {
+    const html = await (await response(path)).text();
+    assert.ok(html.includes('<link rel="icon" href="/favicon.png">'));
+  }
+});
