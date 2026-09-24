@@ -1,6 +1,8 @@
 import { bookPath, bookDescription, bookSchema, renderBookBody } from './book.js';
 
 const supportEmail = "galanouconsulting@gmail.com";
+const familyPlayAppStoreUrl =
+  "https://apps.apple.com/us/app/family-play-screen-free-games/id6804775809";
 
 const css = `
 :root {
@@ -37,6 +39,18 @@ a {
 img {
   display: block;
   max-width: 100%;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 main {
@@ -743,8 +757,12 @@ function renderFamilyPlayPage(origin) {
         <p class="eyebrow">Help for the screen-free family games app</p>
         <h1 id="hero-title">Family Play Support</h1>
         <p class="lead">Find answers about browsing games, saving favorites, adding your own activities, and getting help from Galanou Consulting.</p>
-        <div class="cta-row" aria-label="Primary support actions">
-          <a class="primary-button" href="mailto:${supportEmail}">Email Support</a>
+        <div class="cta-row" aria-label="Family Play actions">
+          <a class="primary-button" href="${familyPlayAppStoreUrl}" target="_blank" rel="noopener noreferrer">
+            Download on the App Store <span aria-hidden="true">↗</span>
+            <span class="sr-only"> (opens in a new tab)</span>
+          </a>
+          <a class="secondary-button" href="mailto:${supportEmail}">Email Support</a>
         </div>
       </div>
 
